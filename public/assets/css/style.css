@@ -47,23 +47,6 @@ nav {
   letter-spacing: -0.02em;
 }
 
-.burger {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  padding: 4px;
-}
-
-.burger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--text);
-  border-radius: 2px;
-  transition: transform .25s, opacity .25s;
-}
-
 /* ── LAYOUT ── */
 .page-wrapper {
   max-width: 560px;
