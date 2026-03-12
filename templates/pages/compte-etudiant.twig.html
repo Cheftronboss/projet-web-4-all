@@ -1,23 +1,9 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mon compte – Web4All</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+{% extends "base.twig.html" %}
 
-  <nav>
-    <span class="nav-logo">Web4All</span>
-    <div class="burger" aria-label="Menu" role="button" tabindex="0">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
+{% block title %}Mon compte — Web4All{% endblock %}
 
-  <div class="page-wrapper">
+{% block content %}
+<div class="page-wrapper">
 
     <!-- EN-TÊTE PROFIL -->
     <div class="profile-header">
@@ -36,29 +22,10 @@
 
     <!-- MENU DU COMPTE -->
     <nav class="account-menu" aria-label="Menu du compte">
-      <a href="modification-compte-etudiant.html" class="account-menu-item">Mes informations</a>
-      <a href="#" class="account-menu-item">Posts et activité</a>
-      <a href="suppression-compte-1.html" class="account-menu-item danger">Supprimer ce compte</a>
+      <a href="?page=modification-compte-etudiant" class="account-menu-item">Mes informations</a>
+      <a href="?page=#" class="account-menu-item">Posts et activité</a>
+      <a href="?page=suppression-compte-1" class="account-menu-item danger">Supprimer ce compte</a>
     </nav>
-
   </div>
-
-  <script>
-    // Burger menu toggle
-    const burger = document.querySelector('.burger');
-    burger.addEventListener('click', () => {
-      const spans = burger.querySelectorAll('span');
-      burger.classList.toggle('open');
-      if (burger.classList.contains('open')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-      } else {
-        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-      }
-    });
-
-  </script>
-
-</body>
-</html>
+</div>
+{% endblock %}

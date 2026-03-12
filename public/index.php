@@ -3,16 +3,17 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
 $twig = new \Twig\Environment($loader, [
-    'cache' => __DIR__ . '/../cache',  // false en dev
+    // 'cache' => __DIR__ . '/../cache',
+    'cache' => false // désactive le cache en dev
 ]);
 
 $page = $_GET['page'] ?? 'accueil';
 $allowedPages = [
-    'accueil', 
-    'compte-entreprise', 
-    'compte-etudiant', 
-    'compte-pilote', 
-    'creation-compte-etudiant', 
+    // 'accueil',
+    'compte-entreprise',
+    'compte-etudiant',
+    'compte-pilote',
+    'creation-compte-etudiant',
     'creation-compte-pilote',
     'creation-compte-validation',
     'creation-entreprise',

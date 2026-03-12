@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Créer un compte Étudiant – Web4All</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+{% extends "base.twig.html" %}
 
-  <nav>
-    <span class="nav-logo">Web4All</span>
-    <div class="burger" aria-label="Menu" role="button" tabindex="0">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
+{% block title %}Créer un compte Étudiant – Web4All{% endblock %}
 
+{% block content %}
   <div class="page-wrapper">
 
     <!-- ONGLETS -->
     <div class="tabs" role="tablist">
-      <a href="creation-compte-etudiant.html" class="tab-link active" role="tab" aria-selected="true">
+      <a href="?page=creation-compte-etudiant" class="tab-link active" role="tab" aria-selected="true">
         <!-- Icône mortier -->
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M22 10L12 5 2 10l10 5 10-5z"/>
@@ -29,7 +15,7 @@
         </svg>
         Étudiant
       </a>
-      <a href="creation-compte-pilote.html" class="tab-link" role="tab" aria-selected="false">
+      <a href="?page=creation-compte-pilote" class="tab-link" role="tab" aria-selected="false">
         <!-- Icône personne -->
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="8" r="4"/>
@@ -37,7 +23,7 @@
         </svg>
         Pilote
       </a>
-      <a href="creation-entreprise.html" class="tab-link" role="tab" aria-selected="false">
+      <a href="?page=creation-entreprise" class="tab-link" role="tab" aria-selected="false">
         <!-- Icône bâtiment -->
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <rect x="3" y="7" width="18" height="14" rx="1"/>
@@ -79,7 +65,7 @@
         <input type="checkbox" id="consent" name="consent" required />
         <p>
           J'accepte les CGU et déclare avoir pris connaissance de
-          <a href="#">la politique de protection des données</a> du site web4all.com.
+          <a href="#">la politique de confidentialité des données</a> du site web4all.com.
         </p>
       </div>
 
@@ -93,20 +79,6 @@
   </div>
 
   <script>
-    // Burger
-    const burger = document.querySelector('.burger');
-    burger.addEventListener('click', () => {
-      const spans = burger.querySelectorAll('span');
-      burger.classList.toggle('open');
-      if (burger.classList.contains('open')) {
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-      } else {
-        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
-      }
-    });
-
     // Validation
     document.getElementById('registerForm').addEventListener('submit', function(e) {
       e.preventDefault();
@@ -119,9 +91,7 @@
           valid = false;
         }
       });
-      if (valid) window.location.href = 'creation-compte-validation.html';
+      if (valid) window.location.href = '?page=creation-compte-validation';
     });
   </script>
-
-</body>
-</html>
+{% endblock %}
