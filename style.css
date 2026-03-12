@@ -148,22 +148,6 @@ textarea::placeholder { color: #B0AFCC; }
 textarea { resize: vertical; min-height: 100px; }
 textarea[rows] { min-height: unset; }
 
-/*Flèche personnalisée*/
-/*.select-wrapper { position: relative; }
-
-.select-wrapper::after {
-  content: '';
-  position: absolute;
-  right: .85rem;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 5px solid transparent;
-  border-top: 6px solid var(--muted);
-  border-bottom: 0;
-  pointer-events: none;
-}
-
-.select-wrapper select { padding-right: 2.2rem; cursor: pointer; }*/
 
 /*Consentement */
 .consent-block {
