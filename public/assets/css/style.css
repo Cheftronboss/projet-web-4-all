@@ -27,7 +27,7 @@ body {
   margin-top: 96px;
 }
 
-/* ── NAV ──
+/* ── NAV ── */
 nav {
   position: sticky;
   top: 0;
@@ -41,20 +41,12 @@ nav {
   justify-content: space-between;
 }
 
-.nav-logo {
-  font-family: 'Fraunces', serif;
-  font-size: 1.25rem;
-  color: var(--primary);
-  letter-spacing: -0.02em;
-}
-
-/* ── LAYOUT ──
+/* ── LAYOUT ── */
 .page-wrapper {
   max-width: 560px;
   margin: 0 auto;
   padding: 2rem 1.25rem 4rem;
-} 
-*/
+}
 
 /* ============================================================ *\
     Reset
