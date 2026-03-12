@@ -1,8 +1,3 @@
-/* ═══════════════════════════════════════
-   STYLE.CSS — Web4All
-   Commun à toutes les pages du projet
-   ═══════════════════════════════════════ */
-
 /* ── RESET & VARIABLES ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
