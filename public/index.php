@@ -9,7 +9,7 @@ $twig = new \Twig\Environment($loader, [
 
 $page = $_GET['page'] ?? 'accueil';
 $allowedPages = [
-    // 'accueil',
+    'accueil',
     'compte-entreprise',
     'compte-etudiant',
     'compte-pilote',
