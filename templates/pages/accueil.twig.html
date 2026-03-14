@@ -3,100 +3,130 @@
 {% block title %}Accueil – Web4All{% endblock %}
 
 {% block content %}
+
 <div class="yellow-background">
 
-  <h1 class="titre-yellow">
-    Trouver votre prochaine opportunité dès <strong>aujourd'hui</strong>
+  <h1 class="title">
+    Trouvez votre prochaine opportunité dès <strong>aujourd'hui</strong> !
   </h1>
 
   <div class="input-wrapper">
-    <input 
-      type="text" 
-      id="nom" 
-      name="nom" 
+    <input
+      type="text"
+      id="nom"
+      name="nom"
       placeholder="Afficher les offres"
       class="hero-input"
     />
-    <button class="arrow-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
-        <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+    <button class="arrow-btn" aria-label="Rechercher">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
       </svg>
     </button>
   </div>
 
-  <img src="accueil-image.png" class="accueil-image" alt="accueil-image">
+  <img src="accueil-image.png" class="accueil-image" alt="Illustration accueil">
 
 </div>
+
 
 <div class="offres-a-la-une">
 
   <h2>Offres à la une</h2>
 
-<div class="offres-a-la-une-slider">
+  <div class="offres-a-la-une-slider">
 
-  <div id="offre-alternance">
-    <div class="etiquette-alternance">
-      <h4 class="titre-alternance">Alternance</h4>
-      
+    <div id="offre-alternance">
+      <div class="etiquette-alternance">
+        <h4 class="titre-alternance">Alternance</h4>
+      </div>
+      <div class="inner-offre-alternance">
+        <h3>Développeur Web Full Stack</h3>
+        <p class="offre-detail">Tech Innovation</p>
+        <p class="offre-detail">Paris, Île-de-France</p>
+        <p class="offre-detail offre-detail--duration">24 mois</p>
+      </div>
+      <button class="btn-offre">Voir l'offre</button>
     </div>
-    <div class="inner-offre-alternance">
-      <h3>Développeur Web Full Stack</h3>
-      <h4 class="offre-detail">Tech Innovation</h4>
-      <h4 class="offre-detail">Paris, Île de France</h4>
-      <h4 class="offre-detail offre-detail--duration">24 mois</h4>
-    </div>
-    <button class="btn-offre">Voir l’offre</button>
-  </div>
-  <div class="slider-dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
 
-  <div class="all-offers-wrapper">
-    <button class="btn-all-offers">Voir toutes les offres</button>
+    <div class="slider-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <div class="all-offers-wrapper">
+      <button class="btn btn-all-offers">Voir toutes les offres</button>
+    </div>
+
   </div>
 
 </div>
 
-<h2>Pourquoi choisir Web4All ?</h2>
+
+<h2 class="section-stats-title">Pourquoi choisir <strong>Web4All</strong> ?</h2>
 
 <h3 class="suivre-candidature-text">Suivez votre candidature</h3>
 
-<h4 class="paragraphe-1">Enfin de la visibilité en direct étape par étape. Postulez et dès que nous avons du nouveau sur l'avancement de votre candidature, vous êtes prévenu !</h4>
+<p class="paragraphe-1">
+  Enfin de la visibilité en direct étape par étape. Postulez et dès que
+  nous avons du nouveau sur l'avancement de votre candidature, vous êtes
+  prévenu !
+</p>
 
+<div class="all-offers-wrapper">
+  <button class="btn btn-my-candid">Voir mes candidatures</button>
 </div>
-  
-  <div class="all-offers-wrapper">
-    <button class="btn-my-candid">Voir mes candidatures</button>
-  </div>
 
-  <h3 class="section-why section-why--blue">Des offres qui ne cachent rien</h3>
-<h4 class="paragraphe-1">Salaire, télétravail … N’avancez plus dans l’inconnu pour choisir votre futur job.<h4>
 
-  <div class="all-offers-wrapper">
-    <button class="btn-my-opportunity">Trouver mon oppotunité</button>
-  </div>
+<h3 class="section-why section-why--blue">Des offres qui ne cachent rien</h3>
 
-  <h3 class="section-why section-why--green">Des entreprises transparentes</h3>
-<h4 class="paragraphe-1">Process de recrutement, délai de réponse, avantages… Vous méritez de vraies réponses, pas de perdre du temps.<h4>
+<p class="paragraphe-1">
+  Salaire, télétravail… N'avancez plus dans l'inconnu pour choisir votre
+  futur job.
+</p>
 
-  <div class="all-offers-wrapper">
-    <button class="btn-see-companies">Voir les entreprises</button>
-  </div>
-  <h2 class="section-stats-title">Préparez-vous à décrocher votre job !</h2>
-  <div class="container-cv">
-    <h3 class="stat-number stat-number--purple">155 000</h3>
-    <p class="stat-text">CV lus en moyenne chaque jour, <strong>soyez le prochain à être vu ! </strong></p>
-  </div>
+<div class="all-offers-wrapper">
+  <button class="btn btn-my-opportunity">Trouver mon opportunité</button>
+</div>
 
-  <div class="container-cv container-cv--blue">
-    <h3 class="stat-number stat-number--blue">780 452</h3>
-    <p class="stat-text">offres en ce moment, <strong> on vous envoie celles qui collent ? </strong></p>
-  </div>
 
-  <div class="container-cv container-cv--green">
-    <h3 class="stat-number stat-number--green">92%</h3>
-    <p class="stat-text">des candidats qui postulent <strong>obtiennent une réponse dans les 72h.</strong></p>
-  </div>
+<h3 class="section-why section-why--green">Des entreprises transparentes</h3>
+
+<p class="paragraphe-1">
+  Process de recrutement, délai de réponse, avantages… Vous méritez de
+  vraies réponses, pas de perdre du temps.
+</p>
+
+<div class="all-offers-wrapper">
+  <button class="btn btn-see-companies">Voir les entreprises</button>
+</div>
+
+
+<h2 class="section-stats-title">Préparez-vous à <strong>décrocher votre job !</strong></h2>
+
+<div class="container-cv">
+  <p class="stat-number stat-number--purple">155 000</p>
+  <p class="stat-text">
+    CV lus en moyenne chaque jour,
+    <strong>soyez le prochain à être vu !</strong>
+  </p>
+</div>
+
+<div class="container-cv container-cv--blue">
+  <p class="stat-number stat-number--blue">780 452</p>
+  <p class="stat-text">
+    offres en ce moment,
+    <strong>on vous envoie celles qui collent ?</strong>
+  </p>
+</div>
+
+<div class="container-cv container-cv--green">
+  <p class="stat-number stat-number--green">92%</p>
+  <p class="stat-text">
+    des candidats qui postulent
+    <strong>obtiennent une réponse dans les 72h.</strong>
+  </p>
+</div>
+
 {% endblock %}

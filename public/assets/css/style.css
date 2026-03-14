@@ -4,9 +4,11 @@
    ═══════════════════════════════════════════════════════════════ */
 
 
+
 /* ============================================================ *\
    1. RESET & VARIABLES
 \* ============================================================ */
+
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -15,6 +17,7 @@
   text-decoration: none;
   list-style: none;
 }
+
 
 :root {
   --primary:        #4B3FEE;
@@ -27,19 +30,42 @@
   --error:          #E0355C;
   --radius:         10px;
 
-  --font-title:     'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-body:      'Helvetica', sans-serif;
+  --font-title: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-body:  'Helvetica', sans-serif;
 
-  --fs-title:       2rem;       /* 32px desktop */
-  --fs-body:        1rem;       /* 16px */
-  --fs-small:       0.875rem;   /* 14px */
-  --fs-label:       0.8125rem;  /* 13px */
+  /* ── Échelles typographiques — desktop ── */
+  --fs-title-desktop:             2.5rem;    /* 40px */
+  --fs--secondary-title-desktop:  2rem;      /* 32px */
+  --fs-body-desktop:              1rem;      /* 16px */
+  --fs-small-desktop:             0.875rem;  /* 14px */
+  --fs-label-desktop:             0.8125rem; /* 13px */
+
+  /* ── Échelles typographiques — phone ── */
+  --fs--title-phone:              2rem;      /* 32px */
+  --fs--secondary-title-phone:    1.25rem;   /* 20px */
+  --fs-body-phone:                1rem;      /* 16px */
+  --fs-small-phone:               0.875rem;  /* 14px */
+  --fs-label-phone:               0.8125rem; /* 13px */
+
+  /* ── Raccourcis actifs (desktop par défaut) ── */
+  --fs-title:           var(--fs-title-desktop);
+  --fs-secondary-title: var(--fs--secondary-title-desktop);
+  --fs-body:            var(--fs-body-desktop);
+  --fs-small:           var(--fs-small-desktop);
+  --fs-label:           var(--fs-label-desktop);
 }
+
 
 
 /* ============================================================ *\
    2. BASE
 \* ============================================================ */
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400 !important;
+}
+
 
 body {
   font-family: var(--font-body);
@@ -51,15 +77,18 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+
 header {
   height: 100vh;
   width: 100vw;
 }
 
 
+
 /* ============================================================ *\
    3. NAVBAR — Ribbon
 \* ============================================================ */
+
 
 .navbar {
   position: fixed;
@@ -78,9 +107,11 @@ header {
   z-index: 100;
 }
 
+
 .navbar a {
   color: black;
 }
+
 
 .logo {
   font-size: 1.2rem;
@@ -89,15 +120,18 @@ header {
   transition: opacity 0.4s ease;
 }
 
+
 .navbar.menu-open .logo {
   opacity: 0;
   pointer-events: none;
 }
 
 
+
 /* ============================================================ *\
    4. NAV LINKS — Desktop
 \* ============================================================ */
+
 
 .nav-links {
   display: flex;
@@ -110,29 +144,35 @@ header {
   z-index: 100;
 }
 
+
 .nav-links ul {
   display: flex;
   align-items: center;
   font-size: var(--fs-body);
 }
 
+
 .nav-links ul li {
   margin: 0 25px;
 }
+
 
 .nav-links a {
   color: rgb(4, 4, 4);
   transition: color 0.2s ease;
 }
 
+
 .nav-links a:hover {
   color: rgb(0, 0, 0);
 }
 
 
+
 /* ============================================================ *\
    5. HAMBURGER ICON
 \* ============================================================ */
+
 
 #nav-toggle {
   display: none;
@@ -144,6 +184,7 @@ header {
   justify-content: center;
 }
 
+
 .bar1, .bar2 {
   width: 16px;
   height: 2px;
@@ -153,20 +194,32 @@ header {
   transition: 0.4s;
 }
 
+
 #nav-toggle.active .bar1 {
   transform: translate(0, 3px) rotate(-45deg);
 }
+
 
 #nav-toggle.active .bar2 {
   transform: translate(0, -3px) rotate(45deg);
 }
 
 
+
 /* ============================================================ *\
    6. MOBILE — max-width: 900px
 \* ============================================================ */
 
+
 @media screen and (max-width: 900px) {
+
+  /* Bascule vers les tailles phone */
+  :root {
+    --fs-title:           var(--fs--title-phone);
+    --fs-secondary-title: var(--fs--secondary-title-phone);
+    /* --fs-body / --fs-small / --fs-label : identiques, pas de surcharge */
+  }
+
   #nav-toggle {
     display: flex;
     flex-direction: column;
@@ -234,9 +287,11 @@ header {
 }
 
 
+
 /* ============================================================ *\
    7. LAYOUT
 \* ============================================================ */
+
 
 .page-wrapper {
   max-width: 560px;
@@ -245,9 +300,28 @@ header {
 }
 
 
+
 /* ============================================================ *\
    8. TYPOGRAPHIE
 \* ============================================================ */
+
+
+h2 {
+  font-family: var(--font-title);
+  font-size: var(--fs-secondary-title); /* 2rem desktop / 1.25rem phone */
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 2.5rem;   /* espace avant chaque h2 */
+}
+
+h3 {
+  font-family: var(--font-title);
+  font-size: 1.25rem;   /* plus petit que h2 */
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 1.5rem;   /* espace avant chaque h3, moins qu'un h2 */
+}
+
 
 .title {
   font-family: var(--font-title);
@@ -257,6 +331,7 @@ header {
   color: var(--text);
   margin-bottom: 2rem;
 }
+
 
 .section-title {
   font-size: var(--fs-body);
@@ -268,11 +343,13 @@ header {
   letter-spacing: 0.01em;
 }
 
+
 label {
   font-size: var(--fs-label);
   font-weight: 500;
   color: var(--muted);
 }
+
 
 label .required {
   color: var(--error);
@@ -280,13 +357,16 @@ label .required {
 }
 
 
+
 /* ============================================================ *\
    9. FORMULAIRES
 \* ============================================================ */
 
+
 .form-section {
   margin-bottom: 2rem;
 }
+
 
 .fields-grid {
   display: flex;
@@ -294,11 +374,13 @@ label .required {
   gap: 1rem;
 }
 
+
 .field {
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
 }
+
 
 input[type="text"],
 input[type="email"],
@@ -320,6 +402,7 @@ textarea {
   appearance: none;
 }
 
+
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="number"]:focus,
@@ -330,24 +413,29 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(75, 63, 238, 0.12);
 }
 
+
 input::placeholder,
 textarea::placeholder {
   color: #B0AFCC;
 }
+
 
 textarea {
   resize: vertical;
   min-height: 100px;
 }
 
+
 textarea[rows] {
   min-height: unset;
 }
+
 
 /* Select — flèche personnalisée */
 .select-wrapper {
   position: relative;
 }
+
 
 .select-wrapper::after {
   content: '';
@@ -363,10 +451,12 @@ textarea[rows] {
   pointer-events: none;
 }
 
+
 .select-wrapper select {
   padding-right: 2.2rem;
   cursor: pointer;
 }
+
 
 /* Bloc consentement */
 .consent-block {
@@ -380,6 +470,7 @@ textarea[rows] {
   margin-bottom: 2rem;
 }
 
+
 .consent-block input[type="checkbox"] {
   margin-top: 2px;
   accent-color: var(--primary);
@@ -389,11 +480,13 @@ textarea[rows] {
   cursor: pointer;
 }
 
+
 .consent-block p {
   font-size: var(--fs-small);
   color: var(--muted);
   line-height: 1.5;
 }
+
 
 .consent-block a {
   color: var(--primary);
@@ -401,27 +494,32 @@ textarea[rows] {
 }
 
 
+
 /* ============================================================ *\
    10. BOUTONS
 \* ============================================================ */
+
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin-top: 1.5rem;   /* ← aération autour des boutons */
+  margin-top: 1.5rem;
 }
+
 
 .btn {
   flex: 0 1 auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  vertical-align: middle;
   padding: 0.75rem 1.75rem;
   border-radius: 50px;
   font-family: var(--font-body);
   font-size: var(--fs-body);
-  font-weight: 600;
+  font-weight: 400;
+  line-height: 1;
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
   border: none;
@@ -435,16 +533,19 @@ textarea[rows] {
   color: var(--white);
 }
 
+
 .btn-primary:hover {
   background: #3B2FDE;
   box-shadow: 0 4px 14px rgba(75, 63, 238, 0.35);
   transform: translateY(-1px);
 }
 
+
 .btn-primary:active {
   transform: translateY(0);
   box-shadow: none;
 }
+
 
 .btn-secondary {
   background: var(--white);
@@ -452,10 +553,14 @@ textarea[rows] {
   border: 1.5px solid var(--border);
 }
 
+
 .btn-secondary:hover {
+  background: rgba(75, 63, 238, 0.08);
   border-color: var(--primary);
-  background: var(--accent);
+  transform: none;
+  box-shadow: none;
 }
+
 
 .btn-outline-primary {
   background: var(--white);
@@ -463,9 +568,13 @@ textarea[rows] {
   border: 2px solid var(--primary);
 }
 
+
 .btn-outline-primary:hover {
-  background: var(--accent);
+  background: rgba(75, 63, 238, 0.08);
+  transform: none;
+  box-shadow: none;
 }
+
 
 .btn-danger {
   background: transparent;
@@ -478,14 +587,17 @@ textarea[rows] {
   font-size: var(--fs-body);
 }
 
+
 .btn-danger:hover {
   text-decoration: underline;
 }
 
 
+
 /* ============================================================ *\
    11. ANIMATIONS
 \* ============================================================ */
+
 
 @keyframes fadeUp {
   to {
@@ -494,11 +606,13 @@ textarea[rows] {
   }
 }
 
+
 .fade-in {
   opacity: 0;
   transform: translateY(12px);
   animation: fadeUp 0.45s forwards;
 }
+
 
 .form-section {
   opacity: 0;
@@ -506,14 +620,17 @@ textarea[rows] {
   animation: fadeUp 0.45s forwards;
 }
 
+
 .form-section:nth-child(1) { animation-delay: 0.05s; }
 .form-section:nth-child(2) { animation-delay: 0.15s; }
 .form-section:nth-child(3) { animation-delay: 0.25s; }
+
 
 .consent-block {
   opacity: 0;
   animation: fadeUp 0.45s 0.35s forwards;
 }
+
 
 .actions {
   opacity: 0;
@@ -521,42 +638,46 @@ textarea[rows] {
 }
 
 
+
 /* ============================================================ *\
-  12. PAGE - Accueil
+  12. PAGE — Accueil
 \* ============================================================ */
 
-/* Bandeau hero jaune */
+
+/* ── Bandeau hero ── */
 .yellow-background {
   width: 100%;
-  height: 456px;
   background-color: #FFD84D;
-  margin: 2rem auto 1.5rem;
-  overflow: hidden;
   padding: 2rem;
+  overflow: hidden;
 }
 
-.titre-yellow {
-  margin-bottom: 1.5rem;
+/* .title déjà défini en section 8 — padding spécifique au contexte hero */
+.yellow-background .title {
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-/* Champ de recherche hero */
+
+/* ── Champ de recherche hero ── */
 .input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
-  min-width: 10rem;
+  width: 100%;
   max-width: 25rem;
-  max-height: 5rem;
 }
+
 
 .hero-input {
   width: 100%;
-  padding: .75rem 3rem .75rem 1rem;
+  padding: 0.75rem 3rem 0.75rem 1rem;
   border-radius: var(--radius);
   border: 1.5px solid var(--border);
-  font-family: 'DM Sans', sans-serif;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
 }
+
 
 .arrow-btn {
   position: absolute;
@@ -571,26 +692,28 @@ textarea[rows] {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
 }
 
-/* Image hero */
+
+/* ── Image hero ── */
 .yellow-background .accueil-image {
   display: block;
-  margin: 2rem auto;
+  margin: 2rem auto 0;
   max-height: 250px;
   max-width: 350px;
   width: 100%;
   height: auto;
 }
 
-/* Section offres à la une */
+
+/* ── Section offres à la une ── */
+/* h2 hérite de la règle native (section 8) */
 .offres-a-la-une h2 {
-  padding-left: 2rem;
-  padding-top: 1rem;
+  padding: 1rem 0 0 2rem;
 }
 
-/* Carte offre */
+
+/* ── Carte offre ── */
 #offre-alternance {
   width: 100%;
   max-width: 20rem;
@@ -602,6 +725,7 @@ textarea[rows] {
   position: relative;
 }
 
+
 /* Étiquette type de contrat */
 #offre-alternance .etiquette-alternance {
   background-color: #5E5CE6;
@@ -611,36 +735,56 @@ textarea[rows] {
   padding: 0.6rem 0.8rem;
 }
 
-.etiquette-alternance .titre-alternance { color: var(--white); }
 
-.inner-offre-alternance { padding-top: 2.8rem; }
+.etiquette-alternance .titre-alternance {
+  color: var(--white);
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
 
-/* Détails de l'offre (entreprise, lieu, durée) */
-.offre-detail { color: var(--muted); }
-.offre-detail--duration { padding-top: 1.5rem; }
 
-/* Bouton voir l'offre */
+.inner-offre-alternance {
+  padding-top: 2.8rem;
+}
+
+
+/* Détails de l'offre */
+.offre-detail {
+  color: var(--muted);
+  font-size: var(--fs-small);
+  font-weight: 400;
+}
+
+
+.offre-detail--duration {
+  padding-top: 1.5rem;
+}
+
+
+/* ── Bouton voir l'offre — étend .btn ── */
 .btn-offre {
   position: absolute;
   right: 20px;
   bottom: 20px;
   background: transparent;
   color: #5A5FD6;
-  border: 3px solid #5A5FD6;
-  padding: 10px 22px;
-  font-size: 18px;
-  font-weight: 600;
+  border: 2px solid #5A5FD6;
   border-radius: 40px;
+  padding: 0.6rem 1.4rem;
+  font-size: var(--fs-body);
+  font-weight: 600;
   cursor: pointer;
-  transition: background .2s, color .2s;
+  transition: background 0.2s, color 0.2s;
 }
+
 
 .btn-offre:hover {
   background: #5A5FD6;
   color: var(--white);
 }
 
-/* Indicateurs de pagination du slider */
+
+/* ── Pagination slider ── */
 .slider-dots {
   display: flex;
   justify-content: center;
@@ -648,113 +792,152 @@ textarea[rows] {
   margin-top: 10px;
 }
 
+
 .dot {
   width: 10px;
   height: 10px;
   background: var(--border);
   border-radius: 50%;
-  transition: background .2s;
+  transition: background 0.2s;
 }
 
-.dot.active { background: #5E5CE6; }
 
-/* Conteneur centré pour les boutons d'action */
+.dot.active {
+  background: #5E5CE6;
+}
+
+
+/* ── Conteneur centré boutons d'action ── */
 .all-offers-wrapper {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
-/* Boutons d'action de la page accueil */
-/* Base partagée */
+
+/* ── Boutons d'action accueil — étendent .btn ── */
 .btn-all-offers,
 .btn-my-candid,
 .btn-my-opportunity,
 .btn-see-companies {
-  background: #F1F1F5;
-  padding: 12px 28px;
-  font-size: 18px;
-  font-weight: 600;
+  background: none;
   border-radius: 40px;
-  cursor: pointer;
-  transition: background .2s;
-  font-family: 'DM Sans', sans-serif;
+  transition: background 0.2s;
 }
 
-/* Variantes couleur par action */
+
 .btn-all-offers     { color: var(--muted); border: 2px solid #E0E0E8; }
 .btn-my-candid      { color: #5A5FD6;      border: 2px solid #5A5FD6; }
 .btn-my-opportunity { color: #007AFF;      border: 2px solid #007AFF; }
 .btn-see-companies  { color: #28CD41;      border: 2px solid #28CD41; }
 
-.btn-all-offers:hover,
-.btn-my-candid:hover,
-.btn-my-opportunity:hover,
-.btn-see-companies:hover { background: #E5E5EE; }
 
-/* Titres section "Pourquoi choisir Web4All ?" */
+.btn-all-offers:hover {
+  background: rgba(107, 107, 138, 0.08);
+  transform: none;
+  box-shadow: none;
+}
+
+
+.btn-my-candid:hover {
+  background: rgba(90, 95, 214, 0.08);
+  transform: none;
+  box-shadow: none;
+}
+
+
+.btn-my-opportunity:hover {
+  background: rgba(0, 122, 255, 0.08);
+  transform: none;
+  box-shadow: none;
+}
+
+
+.btn-see-companies:hover {
+  background: rgba(40, 205, 65, 0.08);
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* ── Sections "Pourquoi choisir Web4All ?" ──
+   h2 et la base de couleur/taille sont gérés nativement ou via .title
+   Ces classes n'ajoutent que positionnement et couleur */
 .suivre-candidature-text {
   color: #5A5FD6;
-  padding-left: 2rem;
-  padding-top: 1rem;
+  padding: 1rem 0 0 2rem;
 }
 
+
 .section-why {
-  padding-top: 1rem;
-  padding-left: 2rem;
+  padding: 1rem 0 0 2rem;
 }
+
 
 .section-why--blue  { color: #007AFF; }
 .section-why--green { color: #28CD41; }
 
+
 /* Paragraphes descriptifs */
 .paragraphe-1 {
-  padding-left: 2rem;
-  padding-top: 1rem;
+  padding: 0.75rem 2rem 0;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.6;
 }
 
-/* Titre section statistiques */
+
+/* ── Section statistiques ── */
+/* h2 hérite de la règle native (section 8) */
 .section-stats-title {
-  padding-left: 2rem;
-  padding-top: 1rem;
+  padding: 1rem 0 0 2rem;
 }
+
 
 /* Cartes statistiques */
 .container-cv {
-  width: 100%;
+  width: calc(100% - 4rem);
   max-width: 35rem;
-  height: 15rem;
+  min-height: 12rem;
   background-color: #5E5CE633;
   border-radius: 30px;
   margin: 2rem auto 1.5rem;
-  padding: 1.2rem;
+  padding: 1.2rem 1.5rem;
   position: relative;
 }
 
-/* Variantes de couleur de fond des cartes */
+
 .container-cv--blue  { background: #CCE4FF; }
 .container-cv--green { background: #D4F5D9; }
 
-/* Chiffre mis en avant */
+
 .stat-number {
   padding-top: 1rem;
   font-size: 2rem;
+  font-weight: 700;
 }
+
 
 .stat-number--purple { color: #5A5FD6; }
 .stat-number--blue   { color: #007AFF; }
 .stat-number--green  { color: #28CD41; }
 
-/* Texte descriptif sous le chiffre */
+
 .stat-text {
-  padding-top: 2rem;
+  padding-top: 1.5rem;
+  font-size: var(--fs-body);
+  color: var(--text);
+  line-height: 1.6;
   max-width: 25rem;
 }
+
 
 
 /* ============================================================ *\
    13. PAGE — Compte étudiant
 \* ============================================================ */
+
 
 .profile-header {
   display: flex;
@@ -765,6 +948,7 @@ textarea[rows] {
   animation: fadeUp 0.45s 0.05s forwards;
 }
 
+
 .profile-name {
   font-family: var(--font-title);
   font-size: var(--fs-title);
@@ -774,11 +958,13 @@ textarea[rows] {
   line-height: 1.2;
 }
 
+
 .profile-role {
   font-size: var(--fs-small);
   color: var(--muted);
   margin-top: 0.15rem;
 }
+
 
 .profile-avatar {
   width: 56px;
@@ -791,11 +977,13 @@ textarea[rows] {
   flex-shrink: 0;
 }
 
+
 .profile-avatar svg {
   width: 30px;
   height: 30px;
   color: var(--primary);
 }
+
 
 .account-menu {
   display: flex;
@@ -804,6 +992,7 @@ textarea[rows] {
   opacity: 0;
   animation: fadeUp 0.45s 0.15s forwards;
 }
+
 
 .account-menu-item {
   display: block;
@@ -817,14 +1006,17 @@ textarea[rows] {
   transition: color 0.2s, padding-left 0.2s;
 }
 
+
 .account-menu-item:first-child {
   border-top: 1px solid var(--border);
 }
+
 
 .account-menu-item:hover {
   color: var(--primary);
   padding-left: 0.4rem;
 }
+
 
 .account-menu-item.danger {
   color: var(--error);
@@ -833,15 +1025,18 @@ textarea[rows] {
   margin-top: 0;
 }
 
+
 .account-menu-item.danger:hover {
   color: #c0234a;
   padding-left: 0.4rem;
 }
 
 
+
 /* ============================================================ *\
    14. PAGE — Modification de compte
 \* ============================================================ */
+
 
 .update-form {
   display: flex;
@@ -849,10 +1044,12 @@ textarea[rows] {
   gap: 1.1rem;
 }
 
+
 .update-form .actions {
   margin-top: 1rem;
   justify-content: center;
 }
+
 
 .update-form .btn-primary {
   flex: unset;
@@ -860,9 +1057,11 @@ textarea[rows] {
 }
 
 
+
 /* ============================================================ *\
    15. PAGE — Suppression de compte
 \* ============================================================ */
+
 
 .warning {
   font-size: var(--fs-body);
@@ -870,6 +1069,7 @@ textarea[rows] {
   line-height: 1.6;
   margin-bottom: 2rem;
 }
+
 
 .success {
   font-size: var(--fs-body);
@@ -879,9 +1079,11 @@ textarea[rows] {
 }
 
 
+
 /* ============================================================ *\
    16. COMPOSANT — Onglets (tabs)
 \* ============================================================ */
+
 
 .tabs {
   display: flex;
@@ -891,6 +1093,7 @@ textarea[rows] {
   opacity: 0;
   animation: fadeUp 0.45s 0.05s forwards;
 }
+
 
 .tab-link {
   display: flex;
@@ -907,15 +1110,18 @@ textarea[rows] {
   white-space: nowrap;
 }
 
+
 .tab-link svg {
   width: 16px;
   height: 16px;
   flex-shrink: 0;
 }
 
+
 .tab-link:hover {
   color: var(--primary);
 }
+
 
 .tab-link.active {
   color: var(--primary);
@@ -923,9 +1129,11 @@ textarea[rows] {
 }
 
 
+
 /* ============================================================ *\
    17. PAGE — Erreur 404
 \* ============================================================ */
+
 
 .error-404 {
   display: flex;
@@ -937,6 +1145,7 @@ textarea[rows] {
   padding: 2rem;
   gap: 0;
 }
+
 
 .error-404__code {
   font-family: var(--font-title);
@@ -951,6 +1160,7 @@ textarea[rows] {
   user-select: none;
 }
 
+
 .error-404__title {
   font-family: var(--font-title);
   font-size: 1.5rem;
@@ -960,6 +1170,7 @@ textarea[rows] {
   margin-bottom: 0.5rem;
 }
 
+
 .error-404__message {
   font-size: var(--fs-body);
   color: var(--muted);
@@ -967,6 +1178,7 @@ textarea[rows] {
   line-height: 1.6;
   margin-bottom: 2rem;
 }
+
 
 .error-404__link {
   display: inline-block;
@@ -979,6 +1191,7 @@ textarea[rows] {
   transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
 }
 
+
 .error-404__link:hover {
   background: #3B2FDE;
   box-shadow: 0 4px 14px rgba(75, 63, 238, 0.35);
@@ -986,25 +1199,52 @@ textarea[rows] {
 }
 
 
+
 /* ============================================================ *\
    18. RESPONSIVE — max-width: 480px
 \* ============================================================ */
 
+
 @media (max-width: 480px) {
-  :root {
-    --fs-title: 2.5rem;   /* 40px mobile */
-    --fs-body:  1rem;     /* 16px inchangé */
-  }
+
+  /* Les raccourcis ont déjà été basculés en phone à 900px.
+     Ce bloc ne gère que les ajustements de layout spécifiques
+     aux très petits écrans. */
 
   .page-wrapper {
     padding: 1.5rem 1rem 3rem;
   }
 
   .profile-name {
-    font-size: 2.5rem;
+    font-size: var(--fs--title-phone); /* 2rem */
   }
 
   .error-404__title {
     font-size: 1.25rem;
+  }
+
+  /* Hero : image masquée sur très petit écran pour libérer
+     de l'espace vertical */
+  .yellow-background .accueil-image {
+    max-height: 180px;
+  }
+
+  /* Cartes stats pleine largeur avec marges réduites */
+  .container-cv {
+    width: calc(100% - 2rem);
+    margin: 1.5rem auto;
+  }
+
+  /* Sections textuelles : padding latéral réduit */
+  .offres-a-la-une h2,
+  .suivre-candidature-text,
+  .section-why,
+  .section-stats-title {
+    padding: 0 0 0 2rem;
+  }
+
+  .paragraphe-1 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
