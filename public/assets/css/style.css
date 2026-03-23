@@ -1006,11 +1006,10 @@ textarea[rows] {
 @media (max-width: 768px) {
   .feature-section {
     flex-direction: column;
-    text-align: center;
   }
   
   .feature-image {
-    max-width: 100%;
+    max-width: 75%;
     order: 2; /* Image after text on mobile */
   }
 }
