@@ -31,7 +31,7 @@
             <p class="card-sector"><?= htmlspecialchars($offer['Secteur']) ?></p>
             <div class="card-rating"><?= htmlspecialchars($offer['Rating']) ?> ★ <span><?= htmlspecialchars($offer['Nombre_avis']) ?> Avis</span></div>
             <div class="card-footer">
-                <button class="btn" onclick="window.location.href='404.twig.html'">Découvrir</button>
+                <button class="bton" onclick="window.location.href='404.twig.html'">Découvrir</button>
                 <span class="offers"><?= htmlspecialchars($offer['Nombre_offres']) ?> Offres</span>
             </div>
             </article>
