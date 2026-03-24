@@ -5,8 +5,8 @@
 {% block content %}
 
 
-<?php include 'OffersDB.php'; ?>
-<?php include 'Pagination.php'; ?>
+<?php include '/src/OffersDB.php'; ?>
+<?php include '/src/Pagination.php'; ?>
 <?php $pagination = new Pagination($offers, 8); ?>
 
 <main class="page">
