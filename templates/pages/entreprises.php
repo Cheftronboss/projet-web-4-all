@@ -6,7 +6,7 @@
 
 
 <?php include '/src/OffersDB.php'; ?>
-<?php include '/src/Pagination.php'; ?>
+<?php include '/src/pagination.php'; ?>
 <?php $pagination = new Pagination($offers, 8); ?>
 
 <main class="page">
