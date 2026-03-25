@@ -29,7 +29,8 @@ $allowedPages = [
     'modification-offre',
     'suppression-compte-1',
     'suppression-compte-2',
-    'suppression-offre'
+    'suppression-offre',
+    'entreprises'
     ];
 
 if (!in_array($page, $allowedPages)) {
@@ -37,6 +38,14 @@ if (!in_array($page, $allowedPages)) {
     $page = '404';
 }
 
-echo $twig->render("pages/{$page}.twig.html", [
-    'currentPage' => $page,
-]);
+$pageFile = __DIR__ . "/templates/pages/{$page}.php";
+
+if (file_exists($pageFile)) {
+    // Inclut le fichier PHP directement (il gère son propre echo/output)
+    include $pageFile;
+} else {
+    // Fallback sur Twig si pas de .php
+    echo $twig->render("pages/{$page}.twig.html", [
+        'currentPage' => $page,
+    ]);
+}

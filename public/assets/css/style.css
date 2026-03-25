@@ -87,6 +87,10 @@ header {
 }
 
 
+a:visited {
+  color: inherit;
+}
+
 
 /* ============================================================ *\
    3. NAVBAR — Ribbon
@@ -210,7 +214,189 @@ header {
 
 
 /* ============================================================ *\
-   6. MOBILE — max-width: 900px
+   6. FOOTER
+\* ============================================================ */
+
+.footer-5-column {
+  padding-top: 3rem;
+  margin-top: 2rem;
+}
+
+.footer-5-column p {
+  color: var(--muted);
+}
+
+.footer {
+  padding: 30px 0;
+}
+
+.footer-background {
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 30px;
+  box-sizing: border-box;
+  background: #0000000a;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.134);
+  border-radius: 20px;
+}
+
+.footer-container {
+  padding: 0px 20px;
+}
+
+.footer-navbar-container {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+
+.footer-company-details {
+  width: 35%;
+  flex: 0 0 auto;
+  padding-right: 2rem;
+  line-height: 1.428;
+}
+
+.footer-logo {
+  width: 60px;
+}
+
+.footer-logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer-logo svg {
+  width: 100%;
+  height: auto;
+}
+
+.bi.bi-rocket-takeoff-fill {
+  color: var(--primary);
+}
+
+.footer-company-details .footer-content {
+  margin-top: 1rem;
+  font-size: var(--fs-body);
+  line-height: 1.8;
+  padding-right: 1rem;
+}
+
+.footer-company-details {
+  margin-top: 1.5rem;
+}
+
+.footer-company-details ul {
+  display: flex;
+}
+
+.footer-company-details ul li {
+  display: flex;
+  margin-right: 14px;
+}
+
+.footer-company-details ul li a {
+  width: 30px;
+  padding: 6px;
+}
+
+.footer-navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-grow: 1;
+  line-height: 1.428;
+}
+
+.footer-navbar-col {
+  width: 25%;
+  flex: 0 0 auto;
+}
+
+.footer-navbar-col h5 {
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  overflow-wrap: break-word;
+  padding-right: 0.5rem;
+}
+
+.footer-navbar-col ul {
+  padding-right: 0.5rem;
+}
+
+.footer-navbar-col ul li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.footer-navbar-col ul li a {
+  font-size: var(--fs-body);
+  color: var(--muted);
+  overflow-wrap: break-word;
+}
+
+.footer-navbar-col ul li a:hover {
+  color: var(--text);
+  cursor: pointer;
+}
+
+.footer-copyright-icons {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+}
+
+.footer-copyright {
+  padding: 2rem 0;
+}
+
+.footer-copyright p {
+  font-size: var(--fs-small);
+  margin-bottom: 0;
+}
+
+.footer-icons {
+  margin-top: 1.5rem;
+}
+
+.footer-icons ul {
+  display: flex;
+}
+
+.footer-icons ul li {
+  display: flex;
+  margin-right: 14px;
+}
+
+.footer-icons ul li a {
+  width: 30px;
+  padding: 6px;
+}
+
+@media all and (max-width: 1140px) {
+  .footer-navbar-container,
+  .footer-navbar {
+    row-gap: 3rem;
+  }
+  .footer-company-details,
+  .footer-navbar-container .footer-navbar {
+    padding: 0;
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 992px) {
+  .footer-navbar-col {
+    width: 50%;
+  }
+}
+
+
+
+/* ============================================================ *\
+   7. MOBILE — max-width: 900px
 \* ============================================================ */
 
 
@@ -292,7 +478,7 @@ header {
 
 
 /* ============================================================ *\
-   7. LAYOUT
+   8. LAYOUT
 \* ============================================================ */
 
 
@@ -305,7 +491,7 @@ header {
 
 
 /* ============================================================ *\
-   8. TYPOGRAPHIE
+   9. TYPOGRAPHIE
 \* ============================================================ */
 
 
@@ -362,7 +548,7 @@ label .required {
 
 
 /* ============================================================ *\
-   9. FORMULAIRES
+   10. FORMULAIRES
 \* ============================================================ */
 
 
@@ -499,7 +685,7 @@ textarea[rows] {
 
 
 /* ============================================================ *\
-   10. BOUTONS
+   11. BOUTONS
 \* ============================================================ */
 
 
@@ -598,7 +784,7 @@ textarea[rows] {
 
 
 /* ============================================================ *\
-   11. ANIMATIONS
+   12. ANIMATIONS
 \* ============================================================ */
 
 
@@ -643,7 +829,7 @@ textarea[rows] {
 
 
 /* ============================================================ *\
-  12. PAGE — Accueil
+  13. PAGE — Accueil
 \* ============================================================ */
 
 
@@ -750,8 +936,6 @@ textarea[rows] {
 .offres-a-la-une > h2 {
   padding: 1rem 0 0 2rem;
 }
-
-/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 /* ── Carousel Swiper ── */
 .swiper {
@@ -900,7 +1084,6 @@ textarea[rows] {
   color: var(--white);
 }
 
-/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 /* ── Conteneur centré boutons d'action ── */
 .all-offers-wrapper {
@@ -1089,7 +1272,7 @@ textarea[rows] {
 
 
 /* ============================================================ *\
-   13. PAGE — Compte étudiant
+   14. PAGE — Compte étudiant
 \* ============================================================ */
 
 
@@ -1188,7 +1371,7 @@ textarea[rows] {
 
 
 /* ============================================================ *\
-   14. PAGE — Modification de compte
+   15. PAGE — Modification de compte
 \* ============================================================ */
 
 
@@ -1213,7 +1396,7 @@ textarea[rows] {
 
 
 /* ============================================================ *\
-   15. PAGE — Suppression de compte
+   16. PAGE — Suppression de compte
 \* ============================================================ */
 
 
@@ -1233,7 +1416,7 @@ textarea[rows] {
 }
 
 /* ============================================================ *\
-   16. FAVORIS
+   17. FAVORIS
 \* ============================================================ */
 
 .title-favoris {
@@ -1241,7 +1424,7 @@ textarea[rows] {
 }
 
 /* ============================================================ *\
-   17. COMPOSANT — Onglets (tabs)
+   18. COMPOSANT — Onglets (tabs)
 \* ============================================================ */
 
 
@@ -1291,7 +1474,7 @@ textarea[rows] {
 
 
 /* ============================================================ *\
-   18. PAGE — Erreur 404
+   19. PAGE — Erreur 404
 \* ============================================================ */
 
 
@@ -1361,7 +1544,7 @@ textarea[rows] {
 
 
 /* ============================================================ *\
-   19. PAGE — Liste entreprises
+   20. PAGE — Liste entreprises
 \* ============================================================ */
 
 
@@ -1489,7 +1672,7 @@ textarea[rows] {
 
 
 /* ============================================================ *\
-   20. RESPONSIVE — max-width: 480px
+   21. RESPONSIVE — max-width: 480px
 \* ============================================================ */
 
 
@@ -1536,4 +1719,3 @@ textarea[rows] {
     padding-right: 1rem;
   }
 }
-
