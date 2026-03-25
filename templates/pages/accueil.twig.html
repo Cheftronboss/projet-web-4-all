@@ -13,7 +13,7 @@
     Trouvez votre prochaine opportunité dès <strong>aujourd'hui</strong> !
   </h1>
 
-  <a href="?page=offres" class="btn-hero">
+  <a href="?page=offres" class="btn btn-white">
     Afficher les offres
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="all-offers-wrapper">
-        <button class="btn btn-all-offers">Voir toutes les offres</button>
+        <button class="btn">Voir toutes les offres</button>
     </div>
 
 </div>
@@ -80,7 +80,7 @@
       nous avons du nouveau sur l'avancement de votre candidature, vous êtes prévenu !
     </p>
     <div class="all-offers-wrapper">
-      <button class="btn btn-my-candid">Voir mes candidatures</button>
+      <button class="btn btn-primary">Voir mes candidatures</button>
     </div>
   </div>
   <img src="/assets/images/suivi-candidature.png" alt="Suivi de candidature" class="feature-image">
@@ -94,7 +94,7 @@
       Salaire, télétravail… N'avancez plus dans l'inconnu pour choisir votre futur job.
     </p>
     <div class="all-offers-wrapper">
-        <button class="btn btn-my-opportunity">Trouver mon opportunité</button>
+        <button class="btn btn-blue">Trouver mon opportunité</button>
     </div>
   </div>
 </section>
@@ -106,7 +106,7 @@
         Process de recrutement, délai de réponse, avantages… Vous méritez de vraies réponses, pas de perdre du temps.
     </p>
     <div class="all-offers-wrapper">
-        <button class="btn btn-see-companies">Voir les entreprises</button>
+        <button class="btn btn-green">Voir les entreprises</button>
     </div>
   </div>
   <img src="/assets/images/entreprises-transparentes.png" alt="Des entreprises transparentes" class="feature-image">
@@ -115,19 +115,21 @@
 
 <h2 class="section-stats-title">Préparez-vous à <strong>décrocher votre job !</strong></h2>
 
-<div class="container-cv">
-    <p class="stat-number stat-number--purple">155 000</p>
-    <p class="stat-text">CV lus en moyenne chaque jour, <strong>soyez le prochain à être vu !</strong></p>
-</div>
+<div class="stats-container">
+  <div class="stat-container">
+      <p class="stat-number stat-number--purple">155 000</p>
+      <p class="stat-text">CV lus en moyenne chaque jour, <strong>soyez le prochain à être vu !</strong></p>
+  </div>
 
-<div class="container-cv container-cv--blue">
-    <p class="stat-number stat-number--blue">780 452</p>
-    <p class="stat-text">offres en ce moment, <strong>on vous envoie celles qui collent ?</strong></p>
-</div>
+  <div class="stat-container stat-container--blue">
+      <p class="stat-number stat-number--blue">780 452</p>
+      <p class="stat-text">offres en ce moment, <strong>on vous envoie celles qui collent ?</strong></p>
+  </div>
 
-<div class="container-cv container-cv--green">
-    <p class="stat-number stat-number--green">92%</p>
-    <p class="stat-text">des candidats qui postulent <strong>obtiennent une réponse dans les 72h.</strong></p>
+  <div class="stat-container stat-container--green">
+      <p class="stat-number stat-number--green">92%</p>
+      <p class="stat-text">des candidats qui postulent <strong>obtiennent une réponse dans les 72h.</strong></p>
+  </div>
 </div>
 
 {% endblock %}
@@ -140,12 +142,12 @@
       spaceBetween: 16,
       grabCursor: true,
       pagination: {
-          el: '.swiper- pagination',
+          el: '.swiper-pagination',
           clickable: true,
       },
       navigation: {
           nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          prevEl: '.swiper-button-prev',îî
       },
       breakpoints: {
           700: { slidesPerView: 2 },

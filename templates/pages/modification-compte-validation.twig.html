@@ -9,25 +9,27 @@
 
     <p id="validation-message" class="success fade-in">Vos informations ont bien été enregistrées.</p>
 
-    <div class="actions fade-in" style="animation-delay:.2s">
-        <a id="back-link" href="#" class="btn btn-primary">Retour à mon compte</a>
+    <div class="actions fade-in">
+        <button id="back-link" onclick="window.location.href='#'" class="btn btn-primary">Retour à mon compte</button>
     </div>
 
 </div>
 
 {% block scripts %}
 <script>
+{
     const params = new URLSearchParams(window.location.search);
     const type = params.get('type');
     const config = {
         etudiant:   { label: 'étudiant',   href: '?page=compte-etudiant' },
         pilote:     { label: 'pilote',      href: '?page=compte-pilote' },
-        entreprise: { label: 'entreprise',  href: '?page=compte-entreprise' },
+        entreprise: { label: 'entreprise',  href: '?page=compte-entreprise' }
     };
     const match = config[type] || { label: '', href: '#' };
     document.getElementById('validation-message').textContent =
         `Vos informations${match.label ? ' (' + match.label + ')' : ''} ont bien été enregistrées.`;
-    document.getElementById('back-link').href = match.href;
+    document.getElementById('back-link').onclick = () => window.location.href = match.href;
+}
 </script>
 {% endblock %}
 

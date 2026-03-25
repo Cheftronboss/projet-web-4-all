@@ -7,14 +7,15 @@
 
     <h1 class="title fade-in">Suppression du compte</h1>
 
-    <p class="warning fade-in" style="animation-delay:.1s">
+    <p class="warning fade-in">
         L'action sera irréversible, êtes-vous sûrs que vous souhaitez supprimer ce compte ?
     </p>
 
-    <div class="actions fade-in" style="animation-delay:.2s">
-        <a href="?page=compte-etudiant" class="btn btn-primary">Non, annuler</a>
-        <a href="?page=suppression-compte-2" class="btn btn-outline-primary">Oui, supprimer</a>
+    <div class="actions fade-in">
+       <button id="back-link" onclick="window.location.href='?page=accueil'" class="btn btn-primary">Non, annuler</button>
+        <button onclick="window.location.href='?page=suppression-compte-2'" class="btn btn-secondary">Oui, supprimer</button>
     </div>
 
 </div>
+
 {% endblock %}
