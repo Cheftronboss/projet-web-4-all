@@ -1596,72 +1596,57 @@ textarea[rows] {
 
 
 .error-404 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(100vh - 48px);
-  text-align: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+.error-404-content {
+  position: absolute;
   padding: 2rem;
-  gap: 0;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-
-.error-404__code {
-  font-family: var(--font-title);
-  font-size: clamp(6rem, 20vw, 12rem);
-  font-weight: 700;
-  line-height: 1;
-  background: linear-gradient(135deg, var(--primary) 0%, #9B8FF8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.04em;
-  user-select: none;
-}
-
-
-.error-404__title {
-  font-family: var(--font-title);
+.error-404-message {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--text);
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  color: rgba(0, 0, 0, 0.92);
+  line-height: 1.3;
+  margin: 0;
 }
 
 
-.error-404__message {
-  font-size: var(--fs-body);
-  color: var(--muted);
-  max-width: 320px;
-  line-height: 1.6;
+.error-404-header {
   margin-bottom: 2rem;
 }
 
 
-.error-404__link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.85rem 1.75rem;
-  border-radius: 50px;
-  font-family: var(--font-body);
-  font-size: var(--fs-body);
-  cursor: pointer;
-  border: none;
-  transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
-  text-decoration: none;
-  white-space: nowrap;
-  background: var(--primary);
-  color: var(--white) !important;
+.btn-yellow {
+  --btn-bg:           #fde04c;
+  --btn-hover-bg:     #ffd60a;
+  --btn-hover-shadow: 0 6px 20px rgba(238, 235, 63, 0.35);
 }
 
 
-.error-404__link:hover {
-  background: var(--primary);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(90, 95, 214, 0.35);
+#error-404-3Dcontainer {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+spline-viewer {
+  width: 100%;
+  height: 100%;
 }
 
 
