@@ -4,7 +4,7 @@ namespace Grp5\ProjetWeb4All\Controllers;
 
 use Grp5\ProjetWeb4All\Core\Controller;
 
-class ErrorController extends Controller
+class AccueilController extends Controller
 {
     public function index(): void
     {
