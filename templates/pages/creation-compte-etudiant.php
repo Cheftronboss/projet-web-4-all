@@ -22,12 +22,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
+
+    use Dotenv\Dotenv;
+
+    $dotenv = Dotenv::createImmutable(__DIR__ . '/../../');
+    $dotenv->load();
+
+    $_ENV['DB_HOST']
+    $_ENV['DB_PORT']
+    $_ENV['DB_NAME']
+    $_ENV['DB_USER']
+    $_ENV['DB_PASSWORD']
+
     try {
         $pdo = new PDO(
-    "pgsql:host={$dotenv['DB_HOST']};port={$dotenv['DB_PORT']};dbname={$dotenv['DB_NAME']}",
-    $dotenv['DB_USER'],
-    $dotenv['DB_PASSWORD'],
-    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+    "pgsql:host={$_ENV['DB_HOST']};port={$_ENV['DB_PORT']};dbname={$_ENV['DB_NAME']}",
+    $_ENV['DB_USER'],
+    $_ENV['DB_PASSWORD'],
+    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+);
 
 
         $stmtCompte = $pdo->prepare("
