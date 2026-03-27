@@ -1,5 +1,5 @@
 <?php
-$dotenv = parse_ini_file(__DIR__ . '/.env');
+$dotenv = parse_ini_file(__DIR__ . '/../.env');
 
 $pdo = new PDO(
     "pgsql:host={$dotenv['DB_HOST']};port={$dotenv['DB_PORT']};dbname={$dotenv['DB_NAME']}",
