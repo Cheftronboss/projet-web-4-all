@@ -601,7 +601,6 @@ h3 {
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--text);
-  margin-bottom: 2rem;
 }
 
 
@@ -1692,36 +1691,109 @@ spline-viewer {
    21. PAGE — Liste entreprises
 \* ============================================================ */
 
+.entreprises-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
-.entreprises {
-  max-width: 1400px;
+.entreprises-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap; 
+}
+
+.search-wrapper {
+  flex: 1;
+  max-width: 480px;
+  flex-shrink: 0;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
   width: 100%;
-  margin-top: 10rem;
-  font-family: 'DM Sans', sans-serif;
+}
+
+.search:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(75, 63, 238, 0.12);
+}
+
+.search__input {
+  flex: 1;
+  padding: 0.65rem 0.85rem;
+  border: none;
+  border-radius: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--text);
+  background: transparent;
+  outline: none;
+
+  /* ── Reset héritage section 10 ── */
+  box-shadow: none !important;
+  border-color: transparent !important;
+  transition: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.search__input:focus {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.search__input::placeholder {
+  color: #B0AFCC;
+}
+
+.search__button {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-
-.search-wrapper {
-  position: relative; 
-  margin-bottom: 1.25rem;
-}
-.search-input {
-  width: 100%;
-  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  padding: 0 0.85rem;
+  height: auto;
+  background: none;
   border: none;
-  border-radius: 999px;
-  background: #ffffff;
-  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--primary);
+  transition: color 0.5s;
+  align-self: stretch;
 }
-.search-icon {
-  position: absolute; 
-  right: 1rem; 
-  top: 50%; 
-  transform: translateY(-50%);
+
+.search__button:hover {
+  color: #2f08bc;
+  transition: 0.5s;
 }
+
+
+/* .favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+} */
+
+.entreprises-empty {
+  text-align: center;
+  color: var(--muted);
+  font-size: var(--fs-body);
+  margin-top: 4rem;
+}
+
+/* @media (max-width: 600px) {
+  .favorites-grid {
+    grid-template-columns: 1fr;
+  }
+} */
 
 .cards-window {
   min-height: 450px;
@@ -1796,6 +1868,7 @@ spline-viewer {
   font-size: 0.8rem;
 }
 .bton:hover { background: #f5f5f5; }
+
 .offers { 
   font-size: 0.8rem; 
   color: #555; 
@@ -1813,9 +1886,21 @@ spline-viewer {
 }
 
 
+@media (max-width: 600px) {
+  .entreprises-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
 
 /* ============================================================ *\
-<<<<<<< Updated upstream
    21. PAGE — Fiche entreprise
 \* ============================================================ */
 
@@ -2153,8 +2238,6 @@ spline-viewer {
 
 
 /* ============================================================ *\
-=======
->>>>>>> Stashed changes
    22. RESPONSIVE — max-width: 480px
 \* ============================================================ */
 

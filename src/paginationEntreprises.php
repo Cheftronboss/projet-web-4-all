@@ -1,17 +1,17 @@
 <?php
 class Pagination {
-    private $offers;           // Liste complète des offres
+    private $entreprises;           // Liste complète des offres
     private $perPage;          // Éléments par page
-    private $totalOffers;      // Total offres
+    private $totalEntreprises;      // Total offres
     private $totalPages;       // Total pages
     private $currentPage;      // Page actuelle (sécurisée)
-    private $currentOffers;    // Offres de la page courante
+    private $currentEntreprises;    // Offres de la page courante
 
-    public function __construct(array $offers, int $perPage = 8) {
-        $this->offers = $offers;
+    public function __construct(array $entreprises, int $perPage = 8) {
+        $this->entreprises = $entreprises;
         $this->perPage = max(1, $perPage);  // Minimum 1
-        $this->totalOffers = count($offers);
-        $this->totalPages = ceil($this->totalOffers / $this->perPage);
+        $this->totalEntreprises = count($entreprises);
+        $this->totalPages = ceil($this->totalEntreprises / $this->perPage);
 
         // Sécurisation page
         $page = isset($_GET['p']) ? (int)$_GET['p'] : 1;
@@ -19,12 +19,12 @@ class Pagination {
 
         // Découpage avec array_slice (offset, length)
         $offset = ($this->currentPage - 1) * $this->perPage;
-        $this->currentOffers = array_slice($offers, $offset, $this->perPage);
+        $this->currentEntreprises = array_slice($entreprises, $offset, $this->perPage);
     }
 
     // Retourne les offres de la page courante
-    public function getCurrentOffers(): array {
-        return $this->currentOffers;
+    public function getCurrentEntreprises(): array {
+        return $this->currentEntreprises;
     }
 
     // Génère les liens de navigation HTML

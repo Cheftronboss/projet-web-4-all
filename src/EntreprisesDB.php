@@ -1,5 +1,5 @@
 <?php
-$offers = [
+$entreprises = [
     [
         'Logo' => '',
         'Nom_entreprise' => 'Dassault Systèmes',

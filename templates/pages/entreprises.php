@@ -1,19 +1,15 @@
 <?php
 
-require_once __DIR__ . '/../../src/OffersDB.php';
-require_once __DIR__ . '/../../src/pagination.php';
+require_once __DIR__ . '/../../src/EntreprisesDB.php';
+require_once __DIR__ . '/../../src/paginationEntreprises.php';
 
 // $twig est hérité du scope de index.php via include — pas besoin de global
-$pagination = new Pagination($offers, 8);
+$pagination = new Pagination($entreprises, 8);
 
 echo $twig->render('pages/entreprises.twig.html', [
-    'currentPage' => 'entreprises',
-    'offers'      => $pagination->getCurrentOffers(),
-    'navLinks'    => $pagination->getNavigationLinks(),
+    'currentPage'   => 'entreprises',
+    'entreprises'   => $pagination->getCurrentEntreprises(),
+    'navLinks'      => $pagination->getNavigationLinks(),
 ]);
 
 ?>
-
-
-
-
