@@ -26,9 +26,19 @@
         </div>
     
         <!-- Note globale entreprise -->
-        <div class="note-entreprise">
-            <p>Nous avons 4 étoiles</p>
-        </div>
+        <form class="star-form" method="get">
+            <div class="global-rating">
+                <label><svg class="icon" viewBox="0 0 24 24"><use href="#star"></use></svg></label>
+
+                <label><svg class="icon" viewBox="0 0 24 24"><use href="#star"></use></svg></label>
+
+                <label><svg class="icon" viewBox="0 0 24 24"><use href="#star"></use></svg></label>
+
+                <label><svg class="icon" viewBox="0 0 24 24"><use href="#star"></use></svg></label>
+
+                <label><svg class="icon" viewBox="0 0 24 24"><use href="#star"></use></svg></label>
+            </div>
+        </form>
 
         <!-- Lien avis en haut -->
         <div class="avis-link-top">
@@ -92,5 +102,11 @@
 
 
 </main>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <symbol id="star" viewBox="0 0 24 24">
+        <path fill="currentColor" d="m10 15-5.9 3 1.1-6.5L.5 7 7 6 10 0l3 6 6.5 1-4.7 4.5 1.1 6.5z"/>
+    </symbol>
+</svg>
 
 {% endblock %}
