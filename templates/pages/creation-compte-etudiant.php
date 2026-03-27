@@ -24,11 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $pdo = new PDO(
-            'mysql:host=localhost;dbname=ta_base;charset=utf8',
-            'ton_user',
-            'ton_mot_de_passe',
-            [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-        );
+    "pgsql:host={$dotenv['DB_HOST']};port={$dotenv['DB_PORT']};dbname={$dotenv['DB_NAME']}",
+    $dotenv['DB_USER'],
+    $dotenv['DB_PASSWORD'],
+    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
+
 
         $stmtCompte = $pdo->prepare("
             INSERT INTO compte (mot_de_passe, niveau_de_permission, role, email_publique)
