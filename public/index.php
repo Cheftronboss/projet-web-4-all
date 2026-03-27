@@ -12,6 +12,7 @@ $twig = new \Twig\Environment($loader, [
 $page = $_GET['page'] ?? 'accueil';
 $allowedPages = [
     'accueil',
+    'login',
     'annonces',
     'compte-entreprise',
     'compte-etudiant',
@@ -33,6 +34,7 @@ $allowedPages = [
     'suppression-compte-1',
     'suppression-compte-2',
     'suppression-offre',
+    'entreprises',
     'fiche-entreprise',
     'evaluation'
     ];
