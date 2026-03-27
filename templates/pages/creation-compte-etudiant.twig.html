@@ -1,10 +1,7 @@
 {% extends "base.twig.html" %}
-
 {% block title %}Créer un compte Étudiant – Web4All{% endblock %}
-
 {% block content %}
 <div class="page-wrapper">
-
     <div class="tabs" role="tablist">
         <a href="?page=creation-compte-etudiant" class="tab-link active" role="tab" aria-selected="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -21,9 +18,7 @@
             Pilote
         </a>
     </div>
-
     <form id="registerForm" novalidate>
-
         <div class="fields-grid fade-in" style="animation-delay:.1s">
             <div class="field">
                 <label for="nom">Nom</label>
@@ -42,7 +37,6 @@
                 <input type="password" id="password" name="password" placeholder="••••••••••••" required />
             </div>
         </div>
-
         <div class="consent-block" style="animation-delay:.2s">
             <input type="checkbox" id="consent" name="consent" required />
             <p>
@@ -50,15 +44,11 @@
                 <a href="#">la politique de confidentialité des données</a> du site web4all.com.
             </p>
         </div>
-
         <div class="actions" style="animation-delay:.3s">
             <button type="submit" class="btn btn-primary">Créer un compte</button>
         </div>
-
     </form>
-
 </div>
-
 {% block scripts %}
 <script>
     document.getElementById('registerForm').addEventListener('submit', function(e) {
@@ -72,9 +62,25 @@
                 valid = false;
             }
         });
-        if (valid) window.location.href = '?page=creation-compte-validation';
+
+        if (valid) {
+            const formData = new FormData(this);
+
+            fetch('handlers/create-etudiant.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '?page=creation-compte-validation';
+                } else {
+                    alert('Erreur : ' + data.message);
+                }
+            })
+            .catch(() => alert('Erreur réseau.'));
+        }
     });
 </script>
 {% endblock %}
-
 {% endblock %}
