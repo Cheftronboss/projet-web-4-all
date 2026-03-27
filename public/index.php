@@ -13,6 +13,7 @@ $page = $_GET['page'] ?? 'accueil';
 $allowedPages = [
     'accueil',
     'login',
+    'logout',
     'annonces',
     'compte-entreprise',
     'compte-etudiant',
