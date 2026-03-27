@@ -11,5 +11,3 @@ class ErrorController extends Controller
         $this->render('pages/404.twig.html');
     }
 }
-
-?>

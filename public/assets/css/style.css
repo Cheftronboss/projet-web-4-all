@@ -1334,7 +1334,7 @@ textarea[rows] {
 
 
 
-.stat-number {
+.home-stat-number {
   padding-top: 1rem;
   font-size: 2rem;
   font-weight: 700;
@@ -2291,7 +2291,6 @@ spline-viewer {
   font-size: 1.1rem;
 }
 
-}
 
 /* Boutons noir & blanc simples */
 .actions {

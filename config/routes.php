@@ -1,11 +1,23 @@
 <?php
 
 use Grp5\ProjetWeb4All\Controllers\{
-    AccueilController,
+    HomeController,
+    OffersController,
+    CompaniesController,
+    RegistrationController,
+    AccountController,
+    FavoritesController,
 };
 
 return [
-    'accueil' => ['controller' => AccueilController::class, 'action' => 'index']
+    'accueil' => ['controller' => HomeController::class, 'action' => 'index'],
+    'annonces' => ['controller' => OffersController::class, 'action' => 'index'],
+    'entreprises' => ['controller' => CompaniesController::class, 'action' => 'index'],
+    'creation-compte' => ['controller' => RegistrationController::class, 'action' => 'index'],
+    'compte' => ['controller' => AccountController::class, 'action' => 'index'],
+    'favoris' => ['controller' => FavoritesController::class, 'action' => 'index'],
+    
+    
     /*'login' => ['controller' => AuthController::class, 'action' => 'login'],
     'logout' => ['controller' => AuthController::class, 'action' => 'logout'],
     'annonces' => ['controller' => OfferController::class, 'action' => 'list'],

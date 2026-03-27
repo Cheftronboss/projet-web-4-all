@@ -5,7 +5,7 @@ namespace Grp5\ProjetWeb4All\Core;
 class Router
 {
     protected array $routes = [];
-    protected string $defaultController = 'AccueilController';
+    protected string $defaultController = 'HomeController';
     protected string $defaultAction = 'index';
 
     public function __construct(array $routes = [])

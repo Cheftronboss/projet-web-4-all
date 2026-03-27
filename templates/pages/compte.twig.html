@@ -9,8 +9,8 @@
   <section class="profile-header" aria-labelledby="profile-name">
 
     <div>
-      <h1 id="profile-name" class="profile-name">DIEMUNSCH Nicolas</h1>
-      <p class="profile-role">Étudiant</p>
+      <h1 id="profile-name" class="profile-name">{{ user_nom }} {{ user_prenom }}</h1>
+      <p class="profile-role">{{ user_role|capitalize }}</p>
     </div>
 
     <div class="profile-avatar" aria-hidden="true">
@@ -23,10 +23,25 @@
 
 
   <nav class="account-menu" aria-label="Menu du compte">
-    <a href="?page=modification-compte-etudiant" class="account-menu-item">Mes informations</a>
-    <a href="#" class="account-menu-item">Mes candidatures</a>
+
+    {# Commun à tous les rôles #}
+    <a href="?page=modification-compte-{{ user_role }}" class="account-menu-item">Mes informations</a>
+
+    {# Spécifique étudiant #}
+    {% if user_role == 'etudiant' %}
+      <a href="#" class="account-menu-item">Mes candidatures</a>
+    {% endif %}
+
+    {# Spécifique pilote #}
+    {% if user_role == 'pilote' %}
+      <a href="#" class="account-menu-item">Mes élèves</a>
+      <a href="#" class="account-menu-item">Mes annonces</a>
+    {% endif %}
+
+    {# Commun à tous les rôles #}
     <a href="#" class="account-menu-item danger">Déconnexion</a>
     <a href="?page=suppression-compte-1" class="account-menu-item danger">Supprimer ce compte</a>
+
   </nav>
 
 
