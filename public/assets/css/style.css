@@ -1048,9 +1048,8 @@ textarea[rows] {
 }
 
 
-
-/* ── Section offres à la une ── */
-.offres-a-la-une > h2 {
+/* ── Section statistiques ── */
+.home-section-title {
   padding: 1rem 0 0 2rem;
 }
 
@@ -1299,13 +1298,6 @@ textarea[rows] {
 }
 
 
-
-/* ── Section statistiques ── */
-.section-stats-title {
-  padding: 1rem 0 0 2rem;
-}
-
-
 .stats-container {
   padding: 2rem;
   display: flex;
@@ -1377,7 +1369,12 @@ textarea[rows] {
 }
 
 .offers-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap; 
 }
 
 .offers-grid {
@@ -1493,6 +1490,31 @@ textarea[rows] {
 .account-menu-item.danger:hover {
   color: #c0234a;
   padding-left: 0.4rem;
+}
+
+
+
+/* ============================================================ *\
+   15. PAGE — Création de compte
+\* ============================================================ */
+
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+
+.register-form .actions {
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+
+.register-form .btn-primary {
+  flex: unset;
+  padding: 0.75rem 2.5rem;
 }
 
 
@@ -1721,6 +1743,7 @@ spline-viewer {
   overflow: hidden;
   transition: border-color 0.2s, box-shadow 0.2s;
   width: 100%;
+  min-width: 280px;
 }
 
 .search:focus-within {
@@ -1765,22 +1788,15 @@ spline-viewer {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--primary);
+  color: var(--primary-light);
   transition: color 0.5s;
   align-self: stretch;
 }
 
 .search__button:hover {
-  color: #2f08bc;
+  color: var(--primary);
   transition: 0.5s;
 }
-
-
-/* .favorites-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
-} */
 
 .entreprises-empty {
   text-align: center;
@@ -1789,7 +1805,13 @@ spline-viewer {
   margin-top: 4rem;
 }
 
-/* @media (max-width: 600px) {
+/* .favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
   .favorites-grid {
     grid-template-columns: 1fr;
   }
@@ -2006,7 +2028,7 @@ spline-viewer {
   margin-bottom: 2.5rem;
 }
 
-.section-title {
+.entreprise-section-title {
   font-size: 1.2rem;
   font-weight: 600;
   color: #222;
@@ -2073,13 +2095,6 @@ spline-viewer {
   flex: 1;
 }
 
-.stat-number {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #007bff;
-}
-
 .stat-label {
   font-size: 0.8rem;
   color: #666;
@@ -2133,17 +2148,17 @@ spline-viewer {
 
 
 #comment{
-    resize: none;
-    overflow: auto;
-    width: 30rem;
-    height: 7rem;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    padding: 0.5rem;
+  resize: none;
+  overflow: auto;
+  width: 30rem;
+  height: 7rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem;
 }
 
 .comment{
-    margin-left: 10rem;
+  margin-left: 10rem;
 }
 
 #bannerimage {
@@ -2190,15 +2205,6 @@ spline-viewer {
 .star-rating label:hover,
 .star-rating label:hover ~ label{
   color: #f5c518;
-}
-
-
-/* Partie concernant les boutons */
-.actions{
-  margin-left: 12rem;
-  margin-top: 4rem;
-  display: flex;
-  gap: 12px;
 }
 
 .star-form button{

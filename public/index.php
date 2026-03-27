@@ -20,7 +20,6 @@ $allowedPages = [
     'creation-compte-etudiant',
     'creation-compte-pilote',
     'creation-compte-validation',
-    'creation-entreprise',
     'creer-offre',
     'detail-annonce',
     'entreprises',
