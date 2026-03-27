@@ -13,6 +13,7 @@ $page = $_GET['page'] ?? 'accueil';
 $allowedPages = [
     'accueil',
     'login',
+    'annonces',
     'compte-entreprise',
     'compte-etudiant',
     'compte-pilote',
@@ -21,6 +22,8 @@ $allowedPages = [
     'creation-compte-validation',
     'creation-entreprise',
     'creer-offre',
+    'detail-annonce',
+    'entreprises',
     'favoris',
     'modification-compte-entreprise',
     'modification-compte-etudiant',
@@ -31,7 +34,9 @@ $allowedPages = [
     'suppression-compte-1',
     'suppression-compte-2',
     'suppression-offre',
-    'entreprises'
+    'entreprises',
+    'fiche-entreprise',
+    'evaluation'
     ];
 
 if (!in_array($page, $allowedPages)) {
