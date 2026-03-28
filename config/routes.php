@@ -17,10 +17,11 @@ return [
     'compte' => ['controller' => AccountController::class, 'action' => 'index'],
     'favoris' => ['controller' => FavoritesController::class, 'action' => 'index'],
     'modification-compte' => ['controller' => AccountController::class, 'action' => 'edit'],
-    'deconnexion' => ['controller' => AccountController::class, 'action' => 'logout'],
+    'deconnexion' => ['controller' => AccountController::class, 'action' => 'logoutConfirmation'],
     'suppression-compte-1' => ['controller' => AccountController::class, 'action' => 'deleteConfirmation'],
     'suppression-compte-2' => ['controller' => AccountController::class, 'action' => 'delete'],
     'modification-compte-validation' => ['controller' => AccountController::class, 'action' => 'editValidation'],
+    'login' => ['controller' => AccountController::class,'action' => 'login'],
     /*
     'annonces' => ['controller' => OfferController::class, 'action' => 'list'],
     'detail-annonce' => ['controller' => OfferController::class, 'action' => 'detail'],
