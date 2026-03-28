@@ -53,6 +53,16 @@ class AccountController extends Controller
         exit;
     }
 
+    public function deleteConfirmation(): void
+    {
+        if (!isset($_SESSION['user_id'])) {
+            header('Location: /?page=login');
+            exit;
+        }
+
+        $this->render('pages/suppression-compte-1.twig.html');
+    }
+
     public function delete(): void
     {
         if (!isset($_SESSION['user_id'])) {
