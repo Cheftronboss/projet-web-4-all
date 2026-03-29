@@ -12,23 +12,43 @@ class AccountController extends Controller
         $this->requireLogin();
 
         $this->render('pages/compte.twig.html', [
-            'user_nom'    => $_SESSION['user_nom'],
-            'user_prenom' => $_SESSION['user_prenom'],
-            'user_role'   => $_SESSION['user_role'],
-            'user_email'  => $_SESSION['user_email'],
+            'user_nom'    => $_SESSION['user_nom'] ?? '',
+            'user_prenom' => $_SESSION['user_prenom'] ?? '',
+            'user_role'   => $_SESSION['user_role'] ?? '',
+            'user_email'  => $_SESSION['user_email'] ?? '',
         ]);
     }
+
 
     // Edit account page
     public function edit(): void
     {
         $this->requireLogin();
 
+        $dotenv = parse_ini_file(__DIR__ . '/../../.env');
+        $pdo = new \PDO(
+            "pgsql:host={$dotenv['DB_HOST']};port={$dotenv['DB_PORT']};dbname={$dotenv['DB_NAME']}",
+            $dotenv['DB_USER'],
+            $dotenv['DB_PASSWORD']
+        );
+
+        $userRole = $_SESSION['user_role'];
+        $userId   = $_SESSION['user_id'];
+
+        if ($userRole === 'etudiant') {
+            $stmt = $pdo->prepare("SELECT * FROM etudiant WHERE id_compte = :id");
+        } else {
+            $stmt = $pdo->prepare("SELECT * FROM pilote WHERE id_compte = :id");
+        }
+
+        $stmt->execute([':id' => $userId]);
+        $user = $stmt->fetch(\PDO::FETCH_ASSOC);
+
         $this->render('pages/modification-compte.twig.html', [
-            'user_nom'    => $_SESSION['user_nom'],
-            'user_prenom' => $_SESSION['user_prenom'],
-            'user_role'   => $_SESSION['user_role'],
-            'user_email'  => $_SESSION['user_email'],
+            'user_nom'    => $user['nom'] ?? '',
+            'user_prenom' => $user['prenom'] ?? '',
+            'user_role'   => $userRole,
+            'user_email'  => $user['email_publique'] ?? '',
         ]);
     }
 
@@ -38,9 +58,9 @@ class AccountController extends Controller
         $this->requireLogin();
 
         $this->render('pages/modification-compte-validation.twig.html', [
-            'user_nom'    => $_SESSION['user_nom'],
-            'user_prenom' => $_SESSION['user_prenom'],
-            'user_role'   => $_SESSION['user_role'],
+            'user_nom'    => $_SESSION['user_nom'] ?? '',
+            'user_prenom' => $_SESSION['user_prenom'] ?? '',
+            'user_role'   => $_SESSION['user_role'] ?? '',
         ]);
     }
 
@@ -74,7 +94,7 @@ class AccountController extends Controller
                     $dotenv['DB_PASSWORD']
                 );
 
-                $stmt = $pdo->prepare("SELECT * FROM Compte WHERE email = :email");
+                $stmt = $pdo->prepare("SELECT * FROM compte WHERE email_publique = :email");
                 $stmt->execute([':email' => $email]);
                 $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
@@ -83,7 +103,7 @@ class AccountController extends Controller
                     $_SESSION['user_id']    = $user['id_compte'];
                     $_SESSION['user_nom']   = $user['nom'] ?? '';
                     $_SESSION['user_prenom'] = $user['prenom'] ?? '';
-                    $_SESSION['user_email'] = $user['email'];
+                    $_SESSION['user_email'] = $user['email_publique'];
                     $_SESSION['user_role']  = $user['role'];
 
                     header('Location: /?page=accueil');
@@ -113,7 +133,7 @@ class AccountController extends Controller
     {
         $this->requireLogin();
         session_destroy();
-        header('Location: /?page=accueil');
+        header('Location: /?page=login');
         exit;
     }
 

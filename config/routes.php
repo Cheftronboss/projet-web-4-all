@@ -2,26 +2,57 @@
 
 use Grp5\ProjetWeb4All\Controllers\{
     HomeController,
-    OffersController,
-    CompaniesController,
-    RegistrationController,
     AccountController,
+    RegistrationController,
     FavoritesController,
+    OffersController,
+    OfferDetailsController,
+    CompaniesController,
+    CompanyDetailsController,
+    RateCompanyController,
+    LegalController,
+    ApplyController,
+
 };
 
 return [
     'accueil' => ['controller' => HomeController::class, 'action' => 'index'],
-    'annonces' => ['controller' => OffersController::class, 'action' => 'index'],
-    'entreprises' => ['controller' => CompaniesController::class, 'action' => 'index'],
-    'creation-compte' => ['controller' => RegistrationController::class, 'action' => 'index'],
+
+    'login' => ['controller' => AccountController::class, 'action' => 'login'],
     'compte' => ['controller' => AccountController::class, 'action' => 'index'],
-    'favoris' => ['controller' => FavoritesController::class, 'action' => 'index'],
     'modification-compte' => ['controller' => AccountController::class, 'action' => 'edit'],
+    'modification-compte-validation' => ['controller' => AccountController::class, 'action' => 'editValidation'],
+    'deconnexion' => ['controller' => AccountController::class, 'action' => 'logout'],
+    'suppression-compte' => ['controller' => AccountController::class, 'action' => 'delete'],
+    
+    'creation-compte' => ['controller' => RegistrationController::class, 'action' => 'index'],
+    
+    'favoris' => ['controller' => FavoritesController::class, 'action' => 'index'],
+
+    'annonces' => ['controller' => OffersController::class, 'action' => 'index'],
+    'detail-annonce' => ['controller' => OfferDetailsController::class, 'action' => 'index'],
+    
+    'entreprises' => ['controller' => CompaniesController::class, 'action' => 'index'],
+    'detail-entreprise' => ['controller' => CompanyDetailsController::class, 'action' => 'index'],
+    'evaluation-entreprise' => ['controller' => RateCompanyController::class, 'action' => 'index'],
+
+    'detail-annonce' => ['controller' => OfferDetailsController::class, 'action' => 'index'],
+    'toggle-favori' => ['controller' => OfferDetailsController::class, 'action' => 'toggleFavorite'],
+    'toggle-rappel' => ['controller' => OfferDetailsController::class, 'action' => 'toggleReminder'],
+    
+    'confidentialite' => ['controller' => LegalController::class, 'action' => 'index'],
+    
+    'postuler' => ['controller' => ApplyController::class, 'action' => 'index'],
+    
+
+
+    /*'logout' => ['controller' => AuthController::class, 'action' => 'logout'],
     'deconnexion' => ['controller' => AccountController::class, 'action' => 'logoutConfirmation'],
     'suppression-compte-1' => ['controller' => AccountController::class, 'action' => 'deleteConfirmation'],
     'suppression-compte-2' => ['controller' => AccountController::class, 'action' => 'delete'],
     'modification-compte-validation' => ['controller' => AccountController::class, 'action' => 'editValidation'],
     'login' => ['controller' => AccountController::class,'action' => 'login'],
+    'logout' => ['controller' => AccountController::class, 'action' => 'logout'],
     /*
     'annonces' => ['controller' => OfferController::class, 'action' => 'list'],
     'detail-annonce' => ['controller' => OfferController::class, 'action' => 'detail'],

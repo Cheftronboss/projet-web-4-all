@@ -4,21 +4,15 @@ $dotenv = parse_ini_file(__DIR__ . '/../.env');
 $pdo = new PDO(
     "pgsql:host={$dotenv['DB_HOST']};port={$dotenv['DB_PORT']};dbname={$dotenv['DB_NAME']}",
     $dotenv['DB_USER'],
-    $dotenv['DB_PASSWORD'],
-    [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    $dotenv['DB_PASSWORD']
 );
 
-// Créer la table entreprise
-$pdo->exec("
-    SELECT * FROM compte;
-");
-echo "Tous les comptes\n";
+$result = $pdo->query("SELECT column_name FROM information_schema.columns WHERE table_name = 'pilote'");
+$columns = $result->fetchAll(PDO::FETCH_ASSOC);
 
-
-// Récupérer tous les éléments
-$stmt = $pdo->query("SELECT * FROM entreprise");
-$entreprises = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-foreach ($entreprises as $e) {
-    echo "- {$e['id']} | {$e['nom']} | {$e['ville']} | {$e['secteur']}\n";
+echo "<ul>";
+foreach ($columns as $col) {
+    echo "<li>" . $col['column_name'] . "</li>";
 }
+echo "</ul>";
+?>
