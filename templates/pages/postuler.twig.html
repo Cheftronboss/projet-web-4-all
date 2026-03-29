@@ -5,21 +5,127 @@
 {% block content %}
 <main class="apply-page">
 
-
     <section class="apply-header" aria-labelledby="apply-title">
-
         <h1 id="apply-title" class="title">Postuler pour <strong>{{ annonce.titre }}</strong> chez <strong>{{ annonce.entreprise }}</strong></h1>
-
     </section>
 
+    <section class="page-wrapper">
 
-    <section>
         <form method="POST" action="?page=postuler" enctype="multipart/form-data">
             <input type="hidden" name="annonce_id" value="{{ annonceId }}">
-            <!-- autres champs -->
+
+            <div class="form-section">
+
+                <div class="fields-grid">
+
+                    <div class="field">
+                        <label for="formation">Intitulé de la formation / école <span class="required">*</span></label>
+                        <input type="text" id="formation" name="formation" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="niveau">Niveau d'études <span class="required">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="niveau" name="niveau" required>
+                                <option value="" disabled selected>-- Sélectionnez --</option>
+                                <option>Bac</option>
+                                <option>Bac +2</option>
+                                <option>Bac +3</option>
+                                <option>Bac +4</option>
+                                <option>Bac +5</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="date_debut">Date de début disponible <span class="required">*</span></label>
+                        <input type="date" id="date_debut" name="date_debut" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="duree">Durée souhaitée (semaines) <span class="required">*</span></label>
+                        <input type="number" id="duree" name="duree" min="1" required />
+                    </div>
+
+                    <div class="field">
+                        <label>CV (PDF) <span class="required">*</span></label>
+                        <div class="file-input-wrapper">
+                            <input
+                                type="file"
+                                id="cv"
+                                name="cv"
+                                accept=".pdf"
+                                required
+                                onchange="updateFileName(this, 'cv-name')"
+                            />
+                            <label for="cv" class="file-input-label">
+                                <span class="file-input-button">Choisir un fichier</span>
+                                <span class="file-input-text" id="cv-name">Aucun fichier sélectionné</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Lettre de motivation (PDF) <span class="required">*</span></label>
+                        <div class="file-input-wrapper">
+                            <input
+                                type="file"
+                                id="lettre"
+                                name="lettre"
+                                accept=".pdf"
+                                required
+                                onchange="updateFileName(this, 'lettre-name')"
+                            />
+                            <label for="lettre" class="file-input-label">
+                                <span class="file-input-button">Choisir un fichier</span>
+                                <span class="file-input-text" id="lettre-name">Aucun fichier sélectionné</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="portfolio">Portfolio ou lien GitHub</label>
+                        <input type="url" id="portfolio" name="portfolio" placeholder="https://..." />
+                    </div>
+
+                    <div class="field">
+                        <label for="message">Message complémentaire</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Informations supplémentaires à destination du recruteur..."></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="consent-block">
+                <input type="checkbox" id="consent" name="consent" required />
+                <p>
+                    J'accepte les CGU et déclare avoir pris connaissance de la
+                    <a href="#">politique de protection des données</a> du site web4all.com.
+                </p>
+            </div>
+
+            <div class="actions">
+                <button type="submit" class="btn btn-primary">Envoyer ma candidature</button>
+                <button type="button" class="btn btn-outline-primary" onclick="history.back()">Annuler</button>
+            </div>
+
         </form>
+
     </section>
 
-
 </main>
+
+
+{% block scripts %}
+<script>
+    function updateFileName(input, targetId) {
+        const label = document.getElementById(targetId);
+        label.textContent = input.files.length > 0
+            ? input.files[0].name
+            : 'Aucun fichier sélectionné';
+    }
+</script>
+{% endblock %}
+
 {% endblock %}
